@@ -290,8 +290,8 @@ st.markdown(
     """
 <style>
 :root{
-  --bg1:#FFE9EF; --bg2:#FFD3DE; --pink:#FF6F9E; --pink-deep:#FF4577;
-  --red:#FF4D5E; --red-deep:#E63950; --ink:#4A2635; --muted:#B97D8F;
+  --bg1:#FFE9EF; --bg2:#FFD3DE; --pink:#FF6F9E; --pink-deep:#C2607A;
+  --red:#FF4D5E; --red-deep:#A8506A; --ink:#4A2635; --muted:#B97D8F;
   --card:#FFFFFF; --line:#FFDCE6;
   --btn-pink:#E0899A; --btn-pink-dark:#D3778A;
 }
@@ -312,9 +312,27 @@ st.markdown(
 .stApp{
   background:linear-gradient(160deg,var(--bg1) 0%, var(--bg2) 45%, #FFE3E8 100%);
 }
-h1, h2, h3, .tt-brand{ color:var(--pink-deep) !important; text-align:center; }
-.tt-brand{ font-size:42px; font-weight:800; margin-bottom:0; }
-.tt-brand span{ color:var(--red-deep); }
+h1, h2, h3{ color:var(--pink-deep) !important; text-align:center; }
+.tt-brand{
+  position:relative; display:inline-block; font-size:42px; font-weight:800; margin-bottom:0;
+  text-align:center; width:100%;
+  background:linear-gradient(90deg, var(--pink-deep) 0%, #fff 50%, var(--pink-deep) 100%);
+  background-size:220% auto;
+  -webkit-background-clip:text; background-clip:text; color:transparent !important;
+  animation:tt-shine 3.2s linear infinite;
+}
+.tt-brand span{ color:var(--red-deep); -webkit-background-clip:initial; background-clip:initial; }
+@keyframes tt-shine{ to{ background-position:-220% center; } }
+.tt-brand::before, .tt-brand::after{
+  content:"✨"; position:absolute; font-size:20px; -webkit-text-fill-color:initial; color:initial;
+  animation:tt-sparkle 1.8s ease-in-out infinite;
+}
+.tt-brand::before{ top:-6px; right:18%; animation-delay:0.3s; }
+.tt-brand::after{ bottom:-2px; left:16%; font-size:15px; animation-delay:0.9s; }
+@keyframes tt-sparkle{
+  0%, 100%{ opacity:0.15; transform:scale(0.6) rotate(0deg); }
+  50%{ opacity:1; transform:scale(1.15) rotate(15deg); }
+}
 .tt-en{ text-align:center; color:var(--muted); margin-top:-8px; }
 .tt-tagline{ text-align:center; color:var(--ink); line-height:1.7; margin:14px auto; max-width:380px; }
 .tt-badge{
