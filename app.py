@@ -293,6 +293,21 @@ st.markdown(
   --bg1:#FFE9EF; --bg2:#FFD3DE; --pink:#FF6F9E; --pink-deep:#FF4577;
   --red:#FF4D5E; --red-deep:#E63950; --ink:#4A2635; --muted:#B97D8F;
   --card:#FFFFFF; --line:#FFDCE6;
+  --btn-pink:#B23A62; --btn-pink-dark:#8F2C4E;
+}
+.stButton button[kind="primary"]{
+  background:linear-gradient(135deg, var(--btn-pink), var(--btn-pink-dark)) !important;
+  border:none !important; color:#fff !important;
+  box-shadow:0 8px 18px rgba(143,44,78,0.35) !important;
+}
+.stButton button[kind="primary"]:hover,
+.stButton button[kind="primary"]:focus:not(:active){
+  background:linear-gradient(135deg, var(--btn-pink-dark), var(--btn-pink)) !important;
+  color:#fff !important;
+  box-shadow:0 8px 18px rgba(143,44,78,0.4) !important;
+}
+.stButton button[kind="primary"]:active{
+  background:var(--btn-pink-dark) !important; color:#fff !important;
 }
 .stApp{
   background:linear-gradient(160deg,var(--bg1) 0%, var(--bg2) 45%, #FFE3E8 100%);
