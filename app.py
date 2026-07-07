@@ -358,12 +358,8 @@ div[data-testid="stVerticalBlockBorderWrapper"] h4{ color:var(--pink-deep); marg
   padding:12px 16px; border:2px solid var(--line); margin-bottom:10px;
 }
 .tt-blob{
-  width:40px; height:40px; border-radius:50%; flex:none;
-  border:2px solid #fff; box-shadow:0 3px 8px rgba(0,0,0,0.18);
-  background-image:
-    radial-gradient(circle at 30% 24%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 20%, rgba(255,255,255,0) 42%),
-    radial-gradient(circle at 68% 78%, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.15) 32%, rgba(0,0,0,0) 58%);
-  background-blend-mode:screen, multiply;
+  width:40px; height:40px; border-radius:58% 42% 53% 47% / 55% 48% 52% 45%; flex:none;
+  border:2px solid #fff; box-shadow:0 3px 8px rgba(0,0,0,0.14);
 }
 .tt-selected-card{ display:flex; align-items:center; gap:14px; margin:12px 0; }
 .tt-selected-info{ flex:1; min-width:0; }
@@ -542,7 +538,7 @@ if st.session_state.analyzed:
         st.markdown(
             f"""
             <div class="tt-selected-card">
-                <div class="tt-blob" style="width:56px;height:56px;background-color:#{hex_color};"></div>
+                <div class="tt-blob" style="width:56px;height:56px;background:#{hex_color};"></div>
                 <div class="tt-selected-info">
                     <div class="tt-selected-name">{shade['name']}</div>
                     <div class="tt-selected-product">{brand['name']} · {product['name']}</div>
@@ -569,7 +565,7 @@ if st.session_state.analyzed:
                 st.markdown(
                     f"""
                     <div class="tt-result-card">
-                        <div class="tt-blob" style="background-color:#{r_hex};"></div>
+                        <div class="tt-blob" style="background:#{r_hex};"></div>
                         <div class="tt-rinfo">
                             <div class="tt-rbrand">{r_brand['name']}</div>
                             <div class="tt-rname">{s['name']}</div>
