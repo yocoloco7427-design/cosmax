@@ -361,6 +361,10 @@ div[data-testid="stVerticalBlockBorderWrapper"] h4{ color:var(--pink-deep); marg
   width:40px; height:40px; border-radius:58% 42% 53% 47% / 55% 48% 52% 45%; flex:none;
   border:2px solid #fff; box-shadow:0 3px 8px rgba(0,0,0,0.14);
 }
+.tt-selected-card{ display:flex; align-items:center; gap:14px; margin:12px 0; }
+.tt-selected-info{ flex:1; min-width:0; }
+.tt-selected-name{ font-weight:700; font-size:16px; color:var(--ink); }
+.tt-selected-product{ font-size:13px; color:var(--muted); margin-top:2px; }
 .tt-rinfo{ flex:1; min-width:0; }
 .tt-rbrand{ font-size:12px; font-weight:700; color:var(--pink-deep); }
 .tt-rname{ font-size:16px; color:var(--ink); font-weight:700; }
@@ -530,20 +534,20 @@ if st.session_state.analyzed:
 
         st.markdown("---")
         st.markdown("#### 🔍 선택하신 색")
-        a1, a2 = st.columns([1, 4])
-        with a1:
-            st.markdown(
-                f'<div class="tt-blob" style="width:56px;height:56px;background:#{hex_color};"></div>',
-                unsafe_allow_html=True,
-            )
-        with a2:
-            st.markdown(f"**{shade['name']}**")
-            st.caption(f"{brand['name']} · {product['name']}")
-            tone = f"{'쿨' if shade['x'] > 0 else '웜'} {abs(shade['x'])} · {'라이트' if shade['y'] > 0 else '딥'} {abs(shade['y'])}"
-            st.markdown(
-                f'<span class="tt-badge">{tone}</span>',
-                unsafe_allow_html=True,
-            )
+        tone = f"{'쿨' if shade['x'] > 0 else '웜'} {abs(shade['x'])} · {'라이트' if shade['y'] > 0 else '딥'} {abs(shade['y'])}"
+        st.markdown(
+            f"""
+            <div class="tt-selected-card">
+                <div class="tt-blob" style="width:56px;height:56px;background:#{hex_color};"></div>
+                <div class="tt-selected-info">
+                    <div class="tt-selected-name">{shade['name']}</div>
+                    <div class="tt-selected-product">{brand['name']} · {product['name']}</div>
+                    <span class="tt-badge" style="margin:8px 0 0;">{tone}</span>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
         st.caption(
             f"컬러차트 상 웜/쿨 {shade['x']}, 라이트/딥 {shade['y']} 위치를 기준으로 가까운 색을 찾아드려요."
         )
