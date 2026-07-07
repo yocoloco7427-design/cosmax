@@ -312,6 +312,24 @@ div[data-testid="stVerticalBlockBorderWrapper"]{
   box-shadow:0 10px 22px rgba(255,90,130,0.12) !important; border:2px solid #fff !important;
 }
 div[data-testid="stVerticalBlockBorderWrapper"] h4{ color:var(--pink-deep); margin-top:0; }
+.tt-chart-wrap{
+  position:relative; max-width:300px; margin:22px auto 6px; padding:28px 40px;
+}
+.tt-chart{ position:relative; width:100%; height:220px; }
+.tt-chart-hline{ position:absolute; left:0; right:0; top:50%; border-top:2px dashed var(--line); }
+.tt-chart-vline{ position:absolute; top:0; bottom:0; left:50%; border-left:2px dashed var(--line); }
+.tt-chart-dot{
+  position:absolute; border-radius:50%; transform:translate(-50%,-50%);
+  box-shadow:0 3px 6px rgba(0,0,0,0.10);
+}
+.tt-chart-axis{
+  position:absolute; font-size:12.5px; color:var(--muted); font-weight:700; white-space:nowrap;
+}
+.tt-chart-axis.top{ top:0; left:50%; transform:translate(-50%,-6px); }
+.tt-chart-axis.bottom{ bottom:0; left:50%; transform:translate(-50%,6px); }
+.tt-chart-axis.left{ left:0; top:50%; transform:translate(-6px,-50%); }
+.tt-chart-axis.right{ right:0; top:50%; transform:translate(6px,-50%); }
+.tt-chart-desc{ font-size:13.5px; color:var(--ink); line-height:1.8; text-align:center; margin-top:4px; }
 .tt-note{
   margin-top:10px; font-size:14px; color:var(--muted); line-height:1.7;
   background:#FFF3F6; border-radius:12px; padding:9px 12px; text-align:center;
@@ -379,6 +397,42 @@ st.markdown(
     unsafe_allow_html=True,
 )
 st.markdown('<span class="tt-badge">컬러차트 있는 브랜드 전용 · 좌표 매칭</span>', unsafe_allow_html=True)
+
+# =========================================================
+# "컬러차트"가 뭐예요? 설명 카드
+# =========================================================
+with st.container(border=True):
+    st.markdown("#### ⏰ \"컬러차트\"가 뭐예요?")
+    st.markdown(
+        """
+<div class="tt-chart-wrap">
+  <span class="tt-chart-axis top">라이트</span>
+  <span class="tt-chart-axis bottom">딥</span>
+  <span class="tt-chart-axis left">웜</span>
+  <span class="tt-chart-axis right">쿨</span>
+  <div class="tt-chart">
+    <div class="tt-chart-hline"></div>
+    <div class="tt-chart-vline"></div>
+    <div class="tt-chart-dot" style="left:32%;top:30%;width:42px;height:42px;background:#EFA980;"></div>
+    <div class="tt-chart-dot" style="left:44%;top:40%;width:26px;height:26px;background:#D98455;"></div>
+    <div class="tt-chart-dot" style="left:64%;top:26%;width:40px;height:40px;background:#F090C4;"></div>
+    <div class="tt-chart-dot" style="left:76%;top:36%;width:26px;height:26px;background:#D854A0;"></div>
+    <div class="tt-chart-dot" style="left:50%;top:50%;width:18px;height:18px;background:#C98CA0;"></div>
+    <div class="tt-chart-dot" style="left:34%;top:62%;width:42px;height:42px;background:#9C5C46;"></div>
+    <div class="tt-chart-dot" style="left:46%;top:72%;width:26px;height:26px;background:#6B3626;"></div>
+    <div class="tt-chart-dot" style="left:64%;top:58%;width:40px;height:40px;background:#7C2E4C;"></div>
+    <div class="tt-chart-dot" style="left:76%;top:68%;width:26px;height:26px;background:#591F38;"></div>
+  </div>
+</div>
+<div class="tt-chart-desc">
+  브랜드들이 립 제품 컬러를 <b>웜↔쿨, 라이트↔딥</b> 두 축 위에 점으로 찍어서 보여주는
+  그림을 <b>"컬러차트"</b>라고 해요.<br>
+  점이 가까이 있을수록 실제로도 비슷한 톤일 가능성이 높아요<br>
+  — 이 앱은 그 위치를 기준으로 닮은 색을 찾아드려요!
+</div>
+""",
+        unsafe_allow_html=True,
+    )
 
 # =========================================================
 # 입력 카드
