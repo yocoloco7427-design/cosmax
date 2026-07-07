@@ -436,8 +436,13 @@ st.markdown("**🙋 뭐부터 해볼지 모르겠다면, 눌러보세요!**")
 chip_cols = st.columns(len(QUICK_TRIES))
 for col, (label, product_key, color_name) in zip(chip_cols, QUICK_TRIES):
     with col:
-        if st.button(label, key=f"quick_{product_key}", use_container_width=True):
-            apply_quick_try(product_key, color_name)
+        st.button(
+            label,
+            key=f"quick_{product_key}",
+            use_container_width=True,
+            on_click=apply_quick_try,
+            args=(product_key, color_name),
+        )
 
 # =========================================================
 # 분석 + 결과
