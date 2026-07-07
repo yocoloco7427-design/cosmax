@@ -290,10 +290,11 @@ st.markdown(
     """
 <style>
 :root{
-  --bg1:#FFE9EF; --bg2:#FFD3DE; --pink:#FF6F9E; --pink-deep:#FF4577;
-  --red:#FF4D5E; --red-deep:#E63950; --ink:#4A2635; --muted:#B97D8F;
-  --card:#FFFFFF; --line:#FFDCE6;
-  --btn-pink:#B23A62; --btn-pink-dark:#8F2C4E;
+  --bg1:#FBE4E8; --bg2:#E9A9B6; --bg3:#E0899A;
+  --pink:#E0899A; --pink-deep:#B8566E;
+  --red:#C97186; --red-deep:#8F3E56; --ink:#5B3340; --muted:#B98A93;
+  --card:#FFFFFF; --line:#F0CDD3;
+  --btn-pink:#C2607A; --btn-pink-dark:#8F3E56;
 }
 .stButton button[kind="primary"]{
   background:linear-gradient(135deg, var(--btn-pink), var(--btn-pink-dark)) !important;
@@ -310,10 +311,24 @@ st.markdown(
   background:var(--btn-pink-dark) !important; color:#fff !important;
 }
 .stApp{
-  background:linear-gradient(160deg,var(--bg1) 0%, var(--bg2) 45%, #FFE3E8 100%);
+  background:linear-gradient(160deg,var(--bg1) 0%, var(--bg2) 45%, var(--bg3) 100%);
+  background-size:200% 200%;
+  animation:tt-bg-shift 18s ease-in-out infinite;
+}
+@keyframes tt-bg-shift{
+  0%, 100%{ background-position:0% 0%; }
+  50%{ background-position:100% 100%; }
 }
 h1, h2, h3, .tt-brand{ color:var(--pink-deep) !important; text-align:center; }
-.tt-brand{ font-size:42px; font-weight:800; margin-bottom:0; }
+.tt-brand{
+  font-size:42px; font-weight:800; margin-bottom:0;
+  background:linear-gradient(90deg, var(--pink-deep), var(--red-deep), var(--pink-deep));
+  background-size:200% auto;
+  -webkit-background-clip:text; background-clip:text; color:transparent !important;
+  text-shadow:0 2px 20px rgba(143,62,86,0.25);
+  animation:tt-shine 5s linear infinite;
+}
+@keyframes tt-shine{ to{ background-position:200% center; } }
 .tt-brand span{ color:var(--red-deep); }
 .tt-en{ text-align:center; color:var(--muted); margin-top:-8px; }
 .tt-tagline{ text-align:center; color:var(--ink); line-height:1.7; margin:14px auto; max-width:380px; }
@@ -443,7 +458,7 @@ with st.container(border=True):
   브랜드들이 립 제품 컬러를 <b>웜↔쿨, 라이트↔딥</b> 두 축 위에 점으로 찍어서 보여주는
   그림을 <b>"컬러차트"</b>라고 해요.<br>
   점이 가까이 있을수록 실제로도 비슷한 톤일 가능성이 높아요<br>
-  — 이 앱은 그 위치를 기준으로 닮은 색을 찾아드려요!
+  — 이 앱은 그 위치를 기준으로 나의 애정템과 닮은 색을 찾아드려요!
 </div>
 """,
         unsafe_allow_html=True,
