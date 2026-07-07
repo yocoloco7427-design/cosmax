@@ -361,8 +361,8 @@ div[data-testid="stVerticalBlockBorderWrapper"] h4{ color:var(--pink-deep); marg
   width:40px; height:40px; border-radius:50%; flex:none;
   border:2px solid #fff; box-shadow:0 3px 8px rgba(0,0,0,0.18);
   background-image:
-    radial-gradient(circle at 30% 24%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.14) 16%, rgba(255,255,255,0) 32%),
-    radial-gradient(circle at 68% 78%, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.07) 26%, rgba(0,0,0,0) 46%);
+    radial-gradient(circle at 30% 24%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 20%, rgba(255,255,255,0) 42%),
+    radial-gradient(circle at 68% 78%, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.15) 32%, rgba(0,0,0,0) 58%);
   background-blend-mode:screen, multiply;
 }
 .tt-selected-card{ display:flex; align-items:center; gap:14px; margin:12px 0; }
