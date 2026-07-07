@@ -313,7 +313,11 @@ st.markdown(
   background:linear-gradient(160deg,var(--bg1) 0%, var(--bg2) 45%, #FFE3E8 100%);
 }
 h1, h2, h3{ color:var(--pink-deep) !important; text-align:center; }
-.tt-brand{ color:#FF9DC0 !important; text-align:center; font-size:42px; font-weight:800; margin-bottom:0; }
+.tt-brand{
+  color:#FF9DC0 !important; text-align:center; font-size:42px; font-weight:800; margin-bottom:0;
+  -webkit-text-stroke:1.5px #D9478A; paint-order:stroke fill;
+  text-shadow:-1px -1px 0 #D9478A, 1px -1px 0 #D9478A, -1px 1px 0 #D9478A, 1px 1px 0 #D9478A;
+}
 .tt-brand span{ color:#FF9DC0; }
 .tt-en{ text-align:center; color:var(--muted); margin-top:-8px; }
 .tt-tagline{ text-align:center; color:var(--ink); line-height:1.7; margin:14px auto; max-width:380px; }
