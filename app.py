@@ -447,7 +447,7 @@ with st.container(border=True):
   브랜드들이 립 제품 컬러를 <b>웜↔쿨, 라이트↔딥</b> 두 축 위에 점으로 찍어서 보여주는
   그림을 <b>"컬러차트"</b>라고 해요.<br>
   점이 가까이 있을수록 실제로도 비슷한 톤일 가능성이 높아요<br>
-  — 이 앱은 그 위치를 기준으로 닮은 색을 찾아드려요!
+  — 이 앱은 그 위치를 기준으로 나의 애정템과 닮은 색을 찾아드려요!
 </div>
 """,
         unsafe_allow_html=True,
@@ -548,7 +548,7 @@ if st.session_state.analyzed:
             f"컬러차트 상 웜/쿨 {shade['x']}, 라이트/딥 {shade['y']} 위치를 기준으로 가까운 색을 찾아드려요."
         )
 
-        st.markdown("#### 💖 위치가 가까운 색은 어때요?")
+        st.markdown("#### 💖 위치가 가까운 색을 추천해드려요!")
         ranked = run_recommend(shade, product["brand"])
         if not ranked:
             st.info("아직 추천할 색을 못 찾았어요 🥲")
